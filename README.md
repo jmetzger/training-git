@@ -9,6 +9,7 @@
      * [git add + Tipps & Tricks](add.md)
      * [git commit](commit.md)
      * [git log](log.md)
+     * [git config](config.md) 
      
   1. [Beautified log](beautify-log.md)
   
