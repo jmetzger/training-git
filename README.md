@@ -9,6 +9,8 @@
      * [git add + Tipps & Tricks](add.md)
      * [git commit](commit.md)
      * [git log](log.md)
+     
+  1. [Beautified log](beautify-log.md)
   
   1. Documentation 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf) 
