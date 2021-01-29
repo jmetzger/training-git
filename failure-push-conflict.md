@@ -43,3 +43,12 @@ git commit
 # Step 4: re-push 
 git push 
 ```
+
+## recipe 
+
+```
+git push 
+git pull 
+git add todo.txt 
+git commit 
+git push 
