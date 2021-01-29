@@ -19,6 +19,7 @@
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
+     * [merge request with bitbucket](merge-request.md)
   
   1. Snippets 
      * [publish lokal repo to server - bitbucket](local-public.md)
