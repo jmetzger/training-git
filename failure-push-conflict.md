@@ -47,7 +47,7 @@ git push
 ## recipe 
 
 ```
-git push 
+git push # failure 
 git pull 
 git add todo.txt 
 git commit 
