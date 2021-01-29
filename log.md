@@ -19,3 +19,8 @@ git log --oneline --reverse
 git log --oneline --reverse | head -1 
 ```
 
+## Multiple commands with an alias 
+
+```
+git config --global alias.sl '!git log --oneline -2 && git status'
+```
