@@ -16,7 +16,10 @@
   1. [Beautified log](beautify-log.md)
   
   1. Exercises 
-     [merge feature/4712 - conflict](merge-conflict.md)
+     * [merge feature/4712 - conflict](merge-conflict.md)
+  
+  1. Snippets 
+     * [publish lokal repo to server - bitbucket](local-public.md)
   
   1. Documentation 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf) 
