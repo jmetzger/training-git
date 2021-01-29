@@ -19,3 +19,15 @@ git checkout -b feature/4822
  # create merge request 
  # and merge 
  ```
+
+## Delete branch online after merge 
+
+## Cleanup locally 
+
+```
+git fetch --prune
+git checkout master
+git branch -D feature/4822
+git pull --rebase
+```
+
