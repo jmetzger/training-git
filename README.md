@@ -13,7 +13,7 @@
      * [git reflog](reflog.md)
      * [git show](show.md)
      * [Needed commands for starters](started-commands.md)
-     
+     * [git branch](branch.md)
      
   1. [Beautified log](beautify-log.md)
   
