@@ -23,6 +23,7 @@
   1. Snippets 
      * [publish lokal repo to server - bitbucket](local-public.md)
      * [failure-on-push-fix](failure-push.md)
+     * [failure-on-push-with-conflict](failure-push-conflict.md)
      
   1. Extras 
      * [Best practices](bp.md) 
