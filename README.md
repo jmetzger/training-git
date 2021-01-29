@@ -20,6 +20,7 @@
   
   1. Snippets 
      * [publish lokal repo to server - bitbucket](local-public.md)
+     * [failure-on-push-fix](failure-push.md)
   
   1. Documentation 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf) 
