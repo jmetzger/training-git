@@ -12,6 +12,8 @@
      * [git config](config.md) 
      * [git reflog](reflog.md)
      * [git show](show.md)
+     * [Needed commands for starters](started-commands.md)
+     
      
   1. [Beautified log](beautify-log.md)
   
