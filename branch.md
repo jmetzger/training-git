@@ -5,3 +5,10 @@
 ```
 git branch lookaround 5f10ca
 ```
+
+## Delete unmerged branch 
+
+```
+git branch -d branchname # does not work in this case 
+git branch -D branchname # <- is the solution 
+```
