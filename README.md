@@ -18,7 +18,8 @@
      * [git merge](merge.md)
    
   1. Advanced Commands 
-     * [git reflog](reflog.md)    
+     * [git reflog](reflog.md) 
+     * [git reset - Back in Time](reset.md)   
      
   1. Tips & tricks 
      * [Beautified log](beautify-log.md)
