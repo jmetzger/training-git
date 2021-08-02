@@ -9,6 +9,14 @@
 git log -2 
 ```
 
+## Show all branches 
+
+```
+git log --all 
+# oder wenn alias alias.lg besteht:
+# git lg --all 
+```
+
 ## Show first log entry 
 
 ```
