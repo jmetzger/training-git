@@ -11,7 +11,6 @@
      * [git commit](commit.md)
      * [git log](log.md)
      * [git config](config.md) 
-     * [git reflog](reflog.md)
      * [git show](show.md)
      * [Needed commands for starters](started-commands.md)
      * [git branch](branch.md)
