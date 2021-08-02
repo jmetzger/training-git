@@ -30,6 +30,9 @@
   1. Extras 
      * [Best practices](bp.md) 
   
+  1. Help
+     * [Help from commandline](help.md)
+    
   1. Documentation 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf) 
      * [GIT Book EN](https://git-scm.com/book/en/v2)
