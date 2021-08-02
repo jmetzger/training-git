@@ -18,9 +18,11 @@
      * [git merge](merge.md)
    
   1. Advanced Commands 
-     * [git reflog](reflog.md) 
+     * [git reflog](reflog.md)    
      
-  1. [Beautified log](beautify-log.md)
+  1. Tips & tricks 
+     * [Beautified log](beautify-log.md)
+     * [Change already committed files and message](commit-amend.md) 
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
