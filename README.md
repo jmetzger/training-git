@@ -17,6 +17,9 @@
      * [git branch](branch.md)
      * [git checkout](checkout.md)
      * [git merge](merge.md)
+   
+  1. Advanced Commands 
+     * [git reflog](reflog.md) 
      
   1. [Beautified log](beautify-log.md)
   
