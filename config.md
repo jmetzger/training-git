@@ -9,6 +9,5 @@
 git config --global --list 
 
 git config --unset --global alias.log
-
 ```
 
