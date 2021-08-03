@@ -38,6 +38,7 @@
      
   1. Extras 
      * [Best practices](bp.md) 
+     * [Using a mergetool to solve conflicts](mergetools.md)
   
   1. Help
      * [Help from commandline](help.md)
