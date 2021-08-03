@@ -38,6 +38,7 @@
      
   1. Extras 
      * [Best practices](#best-practices)
+     * [Using a mergetool to solve conflicts](#using-a-mergetool-to-solve-conflicts)
   
   1. Help
      * [Help from commandline](#help-from-commandline)
@@ -586,6 +587,34 @@ git push
   * Avoid git push -f in any case // should not be possible 
   * Disable possibility to push -f for branch or event repo 
   
+
+<div class="page-break"></div>
+
+### Using a mergetool to solve conflicts
+
+
+### Meld (Windows) 
+
+  *  https://meldmerge.org/
+
+### Configuration in Git for Windwos (git bash) 
+
+```
+## you have to be in a git project 
+git config --global merge.tool meld
+git config --global diff.tool meld
+## Should be on Windows 10 
+git config --global mergetool.meld.path “/c/Users/Admin/AppData/Local/Programs/Meld/Meld.exe”
+## do not create an .orig - file before merge 
+git config --global mergetool.keepBackup false
+```  
+
+### How to use it 
+
+```
+## when you have conflict you can open the mergetool (graphical tool with )
+git mergetool
+```
 
 <div class="page-break"></div>
 
