@@ -16,6 +16,7 @@
      * [git branch](branch.md)
      * [git checkout](checkout.md)
      * [git merge](merge.md)
+     * [git tag](tag.md)
    
   1. Advanced Commands 
      * [git reflog](reflog.md) 
