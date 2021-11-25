@@ -11,3 +11,10 @@ git checkout 11ed -- tmp/test.txt
 
 
 ```
+
+## ...und direkt umbenennen 
+
+```
+# datei todo.txt aus 11ae -> Inhalt anzeigen und direkt neue datei umleiten 
+git show 11ae^:todo.txt > todoneu.txt
+```
