@@ -26,6 +26,7 @@
      * [Beautified log](beautify-log.md)
      * [Change already committed files and message](commit-amend.md) 
      * [Best practice - Delete origin,tracking and local branch after pull request/merge request](best-practice-delete-branch.md)
+     * [Einzelne Datei auschecken](einzelne-datei-auschecken.md)
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
