@@ -55,5 +55,8 @@
      * [GIT Book - submodules](https://git-scm.com/book/de/v2/Git-Tools-Submodule)
      * [Third Party Tools](tooling.md)
      * [Specification Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+     * https://www.innoq.com/de/talks/2019/05/commit-message-101/
+     * https://github.com/GitAlias/gitalias/blob/main/gitalias.txt
+     * https://education.github.com/git-cheat-sheet-education.pdf
      
    
