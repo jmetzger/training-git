@@ -29,7 +29,7 @@
      * [Einzelne Datei auschecken](einzelne-datei-auschecken.md)
      * [Always rebase on pull - setting](rebase-pull.md)
      * [Arbeit mit submodules](submodules.md) 
-     * [Integration von Änderungen (commits, einzelne Dateien) aus anderen Branches in den Master](integrate-to-master.md) 
+     * [Integration von Änderungen (commits, einzelne Dateien) aus anderen commits in den Master](integrate-to-master.md) 
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
