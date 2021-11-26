@@ -29,7 +29,8 @@
      * [Einzelne Datei auschecken](einzelne-datei-auschecken.md)
      * [Always rebase on pull - setting](rebase-pull.md)
      * [Arbeit mit submodules](submodules.md) 
-     * [Integration von Änderungen (commits, einzelne Dateien) aus anderen commits in den Master](integrate-to-master.md) 
+     * [Integration von Änderungen (commits, einzelne Dateien) aus anderen commits in den Master](integrate-to-master.md)
+     * [Fix conflict you have in merge-request (gitlab)](fix-conflict-merge-request.md) 
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
