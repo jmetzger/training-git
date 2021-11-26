@@ -28,6 +28,7 @@
      * [Best practice - Delete origin,tracking and local branch after pull request/merge request](best-practice-delete-branch.md)
      * [Einzelne Datei auschecken](einzelne-datei-auschecken.md)
      * [Always rebase on pull - setting](rebase-pull.md)
+     * [Arbeit mit submodules](submodules.md) 
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
