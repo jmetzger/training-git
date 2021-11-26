@@ -49,6 +49,7 @@
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf) 
      * [GIT Book EN](https://git-scm.com/book/en/v2)
      * [GIT Book DE](https://git-scm.com/book/de/v2)
+     * [GIT Book - submodules](https://git-scm.com/book/de/v2/Git-Tools-Submodule)
      * [Third Party Tools](tooling.md)
      * [Specification Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
      
