@@ -31,6 +31,7 @@
      * [Arbeit mit submodules](submodules.md) 
      * [Integration von Änderungen (commits, einzelne Dateien) aus anderen commits in den Master](integrate-to-master.md)
      * [Fix conflict you have in merge-request (gitlab)](fix-conflict-merge-request.md) 
+     * [SETUP.sql zu setup.sql in Windows (Groß- und Kleinschreibung)](setup-SETUP_sql.md)
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
