@@ -26,6 +26,12 @@
      * [Beautified log](#beautified-log)
      * [Change already committed files and message](#change-already-committed-files-and-message)
      * [Best practice - Delete origin,tracking and local branch after pull request/merge request](#best-practice---delete-origin,tracking-and-local-branch-after-pull-requestmerge-request)
+     * [Einzelne Datei auschecken](#einzelne-datei-auschecken)
+     * [Always rebase on pull - setting](#always-rebase-on-pull---setting)
+     * [Arbeit mit submodules](#arbeit-mit-submodules)
+     * [Integration von Änderungen (commits, einzelne Dateien) aus anderen commits in den Master](#integration-von-änderungen-commits,-einzelne-dateien-aus-anderen-commits-in-den-master)
+     * [Fix conflict you have in merge-request (gitlab)](#fix-conflict-you-have-in-merge-request-gitlab)
+     * [SETUP.sql zu setup.sql in Windows (Groß- und Kleinschreibung)](#setup.sql-zu-setup.sql-in-windows-groß--und-kleinschreibung)
   
   1. Exercises 
      * [merge feature/4712 - conflict](#merge-feature4712---conflict)
@@ -47,7 +53,13 @@
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf)
      * [GIT Book EN](https://git-scm.com/book/en/v2)
      * [GIT Book DE](https://git-scm.com/book/de/v2)
+     * [GIT Book - submodules](https://git-scm.com/book/de/v2/Git-Tools-Submodule)
+     * [GIT Guis](https://git-scm.com/downloads/guis/)
      * [Third Party Tools](#third-party-tools)
+     * [Specification Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+     * https://www.innoq.com/de/talks/2019/05/commit-message-101/
+     * https://github.com/GitAlias/gitalias/blob/main/gitalias.txt
+     * https://education.github.com/git-cheat-sheet-education.pdf
      
    
 
@@ -85,8 +97,6 @@ LANG=en_US.UTF-8
 
 ```
 
-<div class="page-break"></div>
-
 ### GIT unter Windows installieren
 
   * https://git-scm.com/download/win
@@ -108,8 +118,6 @@ git add .
 git add -A 
 ```
 
-<div class="page-break"></div>
-
 ### git commit
 
 
@@ -127,8 +135,6 @@ git add -A
 git commit --amend
 ## now you can change the description, but you will get a new commit-id 
 ```
-
-<div class="page-break"></div>
 
 ### git log
 
@@ -166,8 +172,6 @@ git log --oneline --reverse | head -1
 git config --global alias.sl '!git log --oneline -2 && git status'
 ```
 
-<div class="page-break"></div>
-
 ### git config
 
 
@@ -183,8 +187,6 @@ git config --unset --global alias.log
 ```
 
 
-<div class="page-break"></div>
-
 ### git show
 
 
@@ -195,8 +197,6 @@ git show <commit-ish>
 ## example with commit-id 
 git show 342a
 ```
-
-<div class="page-break"></div>
 
 ### Needed commands for starters
 
@@ -215,8 +215,6 @@ git push
 git pull 
 ```
 
-<div class="page-break"></div>
-
 ### git branch
 
 
@@ -233,8 +231,6 @@ git branch -d branchname # does not work in this case
 git branch -D branchname # <- is the solution 
 ```
 
-<div class="page-break"></div>
-
 ### git checkout
 
 
@@ -250,8 +246,6 @@ git checkout feature/4711
 ## Only possible once 
 git checkout -b feature/4712
 ```
-
-<div class="page-break"></div>
 
 ### git merge
 
@@ -276,10 +270,10 @@ git merge --no-ff feature/4711
 
 ```
 
-<div class="page-break"></div>
-
 ### git tag
 
+
+### Creating tags, Working with tags 
 
 ```
 ## set tag on current commit -> HEAD of branch 
@@ -297,7 +291,31 @@ git checkout tags/v0.1
 
 ```
 
-<div class="page-break"></div>
+### git delete tag 
+
+```
+
+## Tag local löschen und danach online löschen 
+git tag -d test.tag
+git push --delete origin test.tag
+
+## Tag online löschen und danach lokal 
+## Schritt 1: Über das interface (web) löschen 
+## Schritt 2: aktualisieren 
+git fetch --prune --prune-tags 
+
+```
+
+### Misc 
+
+```
+## Fetch new tags from online
+git fetch --tags 
+
+## Update master branch (rebase) and fetch all tags in addition from online 
+git checkout master
+git pull --rebase --tags
+```
 
 ## Advanced Commands 
 
@@ -321,8 +339,6 @@ git reflog
 
 ```
 
-<div class="page-break"></div>
-
 ### git reset - Back in Time
 
 
@@ -339,8 +355,6 @@ git reflog
 ```
 git reset --hard 2343 
 ```
-
-<div class="page-break"></div>
 
 ## Tips & tricks 
 
@@ -361,8 +375,6 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
   * https://git-scm.com/docs/git-log
   
 
-<div class="page-break"></div>
-
 ### Change already committed files and message
 
 
@@ -378,8 +390,6 @@ git add .
 git commit --amend # README will be in same commit as newfile.txt 
 ## + you can also changed the commit message 
 ```
-
-<div class="page-break"></div>
 
 ### Best practice - Delete origin,tracking and local branch after pull request/merge request
 
@@ -403,7 +413,159 @@ git branch -d feature/4811
 
 ```
 
-<div class="page-break"></div>
+### Einzelne Datei auschecken
+
+
+### aus anderem Commit 
+
+```
+## aus commit 11ed 
+
+git checkout 11ed -- todo.txt
+## unterverzeichnis 
+git checkout 11ed -- tmp/test.txt 
+
+
+```
+
+### ...und direkt umbenennen 
+
+```
+## datei todo.txt aus 11ae -> Inhalt anzeigen und direkt neue datei umleiten 
+git show 11ae^:todo.txt > todoneu.txt
+```
+
+### Always rebase on pull - setting
+
+
+```
+git config branch.master.rebase true
+```
+
+### Arbeit mit submodules
+
+
+### Best practive 
+
+```
+clone repo use for submodule seperately
+(in seperate folder)
+if you want to change it
+```
+
+### Updating commands for updating subfolder 
+
+```
+git submodule update --remote 
+## use other branch from submodule then master 
+git config -f .gitmodules submodule.DbConnector.branch stable
+```
+
+### Ref.
+
+  * https://git-scm.com/book/de/v2/Git-Tools-Submodule
+
+### Integration von Änderungen (commits, einzelne Dateien) aus anderen commits in den Master
+
+
+### Walkthrough 
+
+```
+## 1. Schritt - erstellen integrationsbranch von dev/staging branch
+git checkout -b integrate/1
+
+## Möglichkeit 1: cherry-pick - komplette commit inkl. aller Änderungen mit reinnehmen 
+## Hier wird gemerged: Gemerged 
+## Evtl. Konflikt, den muss ich dann lösen 
+git cherry-pick c5906c0
+
+## Möglichkeit 2: Einzelne files aus commit: Achtung, wenn im Work-Directory
+## bereits vorhanden überschrieben
+## commit wird bereits durchgeführt 
+git checkout ddb0 -- armin3.txt
+
+## Möglichkeit 3: cherry-pick ohne commit 
+git cherry-pick -n 4497
+git status 
+## alle files rausnehmen, die wir nicht haben möchten, wie folgt. 
+git restore --staged agenda.txt
+## Achtung, jetzt sind diese so im Working Directory als unstaged 
+## d.h. die alte Version aus dem letzten Commit holen 
+git checkout HEAD -- agenda.txt 
+
+## 3. Schritt 
+## änderungen commiten
+git commit -am "Revised version" 
+
+## 4. Nach online pushed 
+git push -u origin integrate/1 
+
+## 5. Merge request in gitlab: integrate/1 -> master 
+## und dann mergen online 
+```
+
+### Fix conflict you have in merge-request (gitlab)
+
+
+### Walkthrough 
+
+```
+## create feature-branch and worked on it 
+git checkout -b feautre/4711 
+## ... changes
+git add .; git commit -am "new feature"
+## pushed branch online
+git push -u origin feature/4711 
+## then created merge online 
+## feature/4711 --> master 
+
+###### TaDa - It was NOT possible to merge because of conflict 
+## unfortunately advice on gitlab/bitbucket is not worth the dime 
+
+## locally, update you feature-branch like so
+## NO git pull --rebase please, otherwice, you have to redo you merge_request afterwards 
+## get changes from master 
+git pull origin master
+
+## fix conflicts 
+git add . 
+git commit 
+
+## push new version of feature - branch online
+git push 
+
+## now you can merge in the merge-request interface on gitlab 
+
+```
+
+### SETUP.sql zu setup.sql in Windows (Groß- und Kleinschreibung)
+
+
+### Problem 
+
+  * Windows erkennt in git keine Änderung der Groß- und Kleinschreibung 
+  * Workaround: git rm --cached; git commit -am 
+
+### Walkthrough 
+
+```
+touch SETUP.sql 
+git add .; git commit -am "SETUP neu" 
+
+## Uups, verschrieben ! Was jetzt ? 
+git rm --cached SETUP.sql # Datei wird aus git rausgenommen 
+git commit -am "und dingfest machen" 
+## Beweis 
+git show HEAD # letztes commit mit Änderungen anzeigen 
+
+
+## Jetzt auf ein Neues 
+## oder im Explorer
+mv SETUP.sql setup.sql
+git add .; git commit -am "setup.sql neu" 
+git show HEAD 
+
+```
 
 ## Exercises 
 
@@ -422,8 +584,6 @@ git branch -d feature/4811
 7. git add -A; git commit -am "change line1 in todo.txt in master" 
 8. git merge feature/4712 
 ```
-
-<div class="page-break"></div>
 
 ### merge request with bitbucket
 
@@ -460,8 +620,6 @@ git pull --rebase
 ```
 
 
-<div class="page-break"></div>
-
 ## Snippets 
 
 ### publish lokal repo to server - bitbucket
@@ -481,8 +639,6 @@ git pull --rebase
  git commit -am "added testdatei"
  git push
  ```
-
-<div class="page-break"></div>
 
 ### failure-on-push-fix
 
@@ -507,8 +663,6 @@ git pull
 ## Step 3: re-push 
 git push 
 ```
-
-<div class="page-break"></div>
 
 ### failure-on-push-with-conflict
 
@@ -567,8 +721,6 @@ git commit
 git push 
 ```
 
-<div class="page-break"></div>
-
 ## Extras 
 
 ### Best practices
@@ -588,8 +740,6 @@ git push
   * Disable possibility to push -f for branch or event repo 
   
 
-<div class="page-break"></div>
-
 ### Using a mergetool to solve conflicts
 
 
@@ -605,6 +755,8 @@ git config --global merge.tool meld
 git config --global diff.tool meld
 ## Should be on Windows 10 
 git config --global mergetool.meld.path “/c/Users/Admin/AppData/Local/Programs/Meld/Meld.exe”
+## sometimes here 
+git config --global mergetool.meld.path "/c/Program Files (x86)/Meld/Meld.exe"
 ## do not create an .orig - file before merge 
 git config --global mergetool.keepBackup false
 ```  
@@ -615,8 +767,6 @@ git config --global mergetool.keepBackup false
 ## when you have conflict you can open the mergetool (graphical tool with )
 git mergetool
 ```
-
-<div class="page-break"></div>
 
 ## Help
 
@@ -635,8 +785,6 @@ git help log
 
 ```
 
-<div class="page-break"></div>
-
 ## Documentation 
 
 ### GIT Pdf
@@ -650,6 +798,14 @@ git help log
 ### GIT Book DE
 
   * https://git-scm.com/book/de/v2
+
+### GIT Book - submodules
+
+  * https://git-scm.com/book/de/v2/Git-Tools-Submodule
+
+### GIT Guis
+
+  * https://git-scm.com/downloads/guis/
 
 ### Third Party Tools
 
@@ -670,4 +826,6 @@ git help log
 * Git Webhooks 
 ```
 
-<div class="page-break"></div>
+### Specification Conventional Commits
+
+  * https://www.conventionalcommits.org/en/v1.0.0/
