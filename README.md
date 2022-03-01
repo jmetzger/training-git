@@ -54,6 +54,7 @@
      * [GIT Book EN](https://git-scm.com/book/en/v2)
      * [GIT Book DE](https://git-scm.com/book/de/v2)
      * [GIT Book - submodules](https://git-scm.com/book/de/v2/Git-Tools-Submodule)
+     * [GIT Guis](https://git-scm.com/downloads/guis/)
      * [Third Party Tools](tooling.md)
      * [Specification Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
      * https://www.innoq.com/de/talks/2019/05/commit-message-101/
