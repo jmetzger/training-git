@@ -21,13 +21,6 @@ git checkout tags/v0.1
 ## git delete tag 
 
 ```
-Deleting tags
-# Fetch new tags from online
-git fetch --tags 
-
-# Update master branch (rebase) and fetch all tags in addition from online 
-git checkout master
-git pull --rebase --tags
 
 # Tag local löschen und danach online löschen 
 git tag -d test.tag
@@ -38,4 +31,15 @@ git push --delete origin test.tag
 # Schritt 2: aktualisieren 
 git fetch --prune --prune-tags 
 
+```
+
+## Misc 
+
+```
+# Fetch new tags from online
+git fetch --tags 
+
+# Update master branch (rebase) and fetch all tags in addition from online 
+git checkout master
+git pull --rebase --tags
 ```
