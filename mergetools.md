@@ -17,6 +17,7 @@
 git config --global merge.tool meld
 git config --global diff.tool meld
 git config --global mergetool.keepBackup false
+git config --list
 ```
 
 ## If not found bei mergetool --tool-help :: Configuration in Git for Windows (git bash) 
