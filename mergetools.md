@@ -4,6 +4,12 @@
 
   *  https://meldmerge.org/
 
+## Find out if mergetools are available 
+
+```
+ git mergetool --tool-help
+```
+
 ## Configuration in Git for Windows (git bash) 
 
 ```
