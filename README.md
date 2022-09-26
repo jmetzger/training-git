@@ -2,6 +2,9 @@
 
 ## Agenda 
 
+  1. Geschichte / Grundlagen 
+     * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf)
+
   1. Installation 
      * [GIT auf Ubuntu/Debian installieren](installation-ubuntu-debian.md)
      * [GIT unter Windows installieren](https://git-scm.com/download/win)
