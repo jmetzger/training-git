@@ -4,7 +4,7 @@
 
   *  https://meldmerge.org/
 
-## Configuration in Git for Windwos (git bash) 
+## Configuration in Git for Windows (git bash) 
 
 ```
 # you have to be in a git project 
