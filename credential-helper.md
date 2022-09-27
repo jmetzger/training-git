@@ -1,3 +1,5 @@
-# Use a different user for another on same host 
+# Work with different user on one repo 
 
-https://git-scm.com/docs/gitcredentials
+## Ref:
+
+https://de.linkedin.com/pulse/mehrere-gitlabgithub-accounts-bzw-ssh-keys-zum-host-mit-mindermann
