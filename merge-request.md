@@ -10,10 +10,10 @@ git commit -am "f1.txt"
 touch f2.txt
 git add .
 git commit -am "f2.txt"
-git push origin feature/4822
+git push -u origin feature/4822
 ```
  
-## Online bitbucket
+## Online bitbucket / gitlab 
  
 ```
 # create merge request 
