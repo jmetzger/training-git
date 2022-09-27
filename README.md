@@ -35,6 +35,8 @@
      * [Integration von Änderungen (commits, einzelne Dateien) aus anderen commits in den Master](integrate-to-master.md)
      * [Fix conflict you have in merge-request (gitlab)](fix-conflict-merge-request.md) 
      * [SETUP.sql zu setup.sql in Windows (Groß- und Kleinschreibung)](setup-SETUP_sql.md)
+     * [Force specfic commit message](pre-receive-hook.md)
+     * [Alle Dateien, die sich geändert haben anzeigen z.B. heute](files-changed-today.md)
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
