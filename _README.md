@@ -2,10 +2,9 @@
 
 
 ## Agenda
-  1. Installation 
-     * [GIT auf Ubuntu/Debian installieren](#git-auf-ubuntudebian-installieren)
-     * [GIT unter Windows installieren](https://git-scm.com/download/win)
-  
+  1. Geschichte / Grundlagen 
+     * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf)
+     
   1. Commands (with tipps & tricks) 
      * [git add + Tipps & Tricks](#git-add-+-tipps-&-tricks)
      * [git commit](#git-commit)
@@ -25,13 +24,15 @@
   1. Tips & tricks 
      * [Beautified log](#beautified-log)
      * [Change already committed files and message](#change-already-committed-files-and-message)
-     * [Best practice - Delete origin,tracking and local branch after pull request/merge request](#best-practice---delete-origin,tracking-and-local-branch-after-pull-requestmerge-request)
+     * [Best practice - Delete origin,tracking and local branch after pull request/merge request](#best-practice---delete-origintracking-and-local-branch-after-pull-requestmerge-request)
      * [Einzelne Datei auschecken](#einzelne-datei-auschecken)
      * [Always rebase on pull - setting](#always-rebase-on-pull---setting)
      * [Arbeit mit submodules](#arbeit-mit-submodules)
-     * [Integration von Änderungen (commits, einzelne Dateien) aus anderen commits in den Master](#integration-von-änderungen-commits,-einzelne-dateien-aus-anderen-commits-in-den-master)
+     * [Integration von Änderungen (commits, einzelne Dateien) aus anderen commits in den Master](#integration-von-änderungen-commits-einzelne-dateien-aus-anderen-commits-in-den-master)
      * [Fix conflict you have in merge-request (gitlab)](#fix-conflict-you-have-in-merge-request-gitlab)
-     * [SETUP.sql zu setup.sql in Windows (Groß- und Kleinschreibung)](#setup.sql-zu-setup.sql-in-windows-groß--und-kleinschreibung)
+     * [SETUP.sql zu setup.sql in Windows (Groß- und Kleinschreibung)](#setupsql-zu-setupsql-in-windows-groß--und-kleinschreibung)
+     * [Force specfic commit message](#force-specfic-commit-message)
+     * [Alle Dateien, die sich geändert haben anzeigen z.B. heute](#alle-dateien-die-sich-geändert-haben-anzeigen-zb-heute)
   
   1. Exercises 
      * [merge feature/4712 - conflict](#merge-feature4712---conflict)
@@ -48,7 +49,13 @@
   
   1. Help
      * [Help from commandline](#help-from-commandline)
-    
+   
+  1. subtrees
+     * [substrees](#substrees)
+   
+  1. Authentication 
+     * [Work with different credentials](#work-with-different-credentials)
+   
   1. Documentation 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf)
      * [GIT Book EN](https://git-scm.com/book/en/v2)
@@ -61,45 +68,20 @@
      * https://github.com/GitAlias/gitalias/blob/main/gitalias.txt
      * https://education.github.com/git-cheat-sheet-education.pdf
      
-   
+## Backlog  
+
+  1. Installation 
+     * [GIT auf Ubuntu/Debian installieren](#git-auf-ubuntudebian-installieren)
+     * [GIT unter Windows installieren](https://git-scm.com/download/win)
+  
 
 <div class="page-break"></div>
 
-## Installation 
+## Geschichte / Grundlagen 
 
-### GIT auf Ubuntu/Debian installieren
+### GIT Pdf
 
-
-### Installation 
-
-```
-sudo apt update 
-sudo apt install git 
-```
-
-### Language to english please !! 
-
-```
-sudo update-locale LANG=en_US.UTF-8
-su - kurs
-
-## back to german 
-
-sudo update-locale LANG=de_DE.UTF-8 
-su - kurs 
-
-## Reference:
-https://www.thomas-krenn.com/de/wiki/Locales_unter_Ubuntu_konfigurieren
-
-## update-locale does a change in
-$ cat /etc/default/locale 
-LANG=en_US.UTF-8
-
-```
-
-### GIT unter Windows installieren
-
-  * https://git-scm.com/download/win
+  * http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf
 
 ## Commands (with tipps & tricks) 
 
@@ -240,11 +222,17 @@ git branch -D branchname # <- is the solution
 git checkout feature/4711
 ```
 
-#### Checkout and create branch 
+### Checkout and create branch 
 
 ```
 ## Only possible once 
 git checkout -b feature/4712
+```
+
+### File aus einem Commit holen (oder HEAD) 
+
+```
+git checkout HEAD -- todo.txt
 ```
 
 ### git merge
@@ -567,6 +555,43 @@ git show HEAD
 
 ```
 
+### Force specfic commit message
+
+
+### Basics 
+
+  * Done on Server-Side
+  * Specific to server - Software (like github/gitlab)
+
+### Example - pre-receive-hook 
+
+ * https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy
+
+
+### Ref: 
+ 
+ * https://docs.gitlab.com/ee/user/project/repository/push_rules.html (not free) 
+ * https://docs.gitlab.com/ee/administration/server_hooks.html
+
+### Alle Dateien, die sich geändert haben anzeigen z.B. heute
+
+
+### Files 
+
+git log --after="2015-11-05T16:36:00-02:00" --before="2022-09-28" --pretty=format:"" --name-only | sort -u
+
+### Mit loop 
+
+```
+for i in $(git log --after="2022-09-26" --before="2022-09-27" --pretty=format:"" --name-only | sort -u); do  git log -- $i; done
+```
+
+### Änderungen einer datei 
+
+```
+git log --after="2022-09-26" --before="2022-09-27" --pretty=format:"" --follow -p -- todo.txt
+```
+
 ## Exercises 
 
 ### merge feature/4712 - conflict
@@ -598,10 +623,10 @@ git commit -am "f1.txt"
 touch f2.txt
 git add .
 git commit -am "f2.txt"
-git push origin feature/4822
+git push -u origin feature/4822
 ```
  
-### Online bitbucket
+### Online bitbucket / gitlab 
  
 ```
 ## create merge request 
@@ -743,11 +768,27 @@ git push
 ### Using a mergetool to solve conflicts
 
 
-### Meld (Windows) 
+### Meld (Windows) - Install  
 
   *  https://meldmerge.org/
 
-### Configuration in Git for Windwos (git bash) 
+### Find out if mergetool meld is available 
+
+```
+ git mergetool --tool-help
+```
+
+### Configure, when it is found by mergetool --tool-help 
+
+```
+## you have to be in a git project 
+git config --global merge.tool meld
+git config --global diff.tool meld
+git config --global mergetool.keepBackup false
+git config --list
+```
+
+### If not found bei mergetool --tool-help :: Configuration in Git for Windows (git bash) 
 
 ```
 ## you have to be in a git project 
@@ -756,7 +797,7 @@ git config --global diff.tool meld
 ## Should be on Windows 10 
 git config --global mergetool.meld.path “/c/Users/Admin/AppData/Local/Programs/Meld/Meld.exe”
 ## sometimes here 
-git config --global mergetool.meld.path "/c/Program Files (x86)/Meld/Meld.exe"
+git config --global mergetool.meld.path "/c/Program Files/Meld/Meld.exe"
 ## do not create an .orig - file before merge 
 git config --global mergetool.keepBackup false
 ```  
@@ -784,6 +825,57 @@ git help log
 ## --> a webpage will open with content 
 
 ```
+
+## subtrees
+
+### substrees
+
+
+### Prerequisites - Existing local repo 
+
+```
+## in der bash 
+cd .. 
+cp -a training training-neu 
+cd training-neu
+```
+
+
+### Walkthrough
+
+```
+git remote add -f training-git https://github.com/jmetzger/training-git.git
+## weird, but needed 
+git status 
+git subtree add --prefix training training-git main --squash
+```
+
+### Updating 
+
+```
+git fetch training-git main
+git subtree pull --prefix training training-git main --squash
+```
+
+### Push 
+
+```
+git subtree push --prefix=training training-git main
+```
+
+
+### Ref. 
+
+  * https://www.atlassian.com/git/tutorials/git-subtree
+
+## Authentication 
+
+### Work with different credentials
+
+
+### Ref:
+
+https://de.linkedin.com/pulse/mehrere-gitlabgithub-accounts-bzw-ssh-keys-zum-host-mit-mindermann
 
 ## Documentation 
 
@@ -829,3 +921,39 @@ git help log
 ### Specification Conventional Commits
 
   * https://www.conventionalcommits.org/en/v1.0.0/
+
+## Installation 
+
+### GIT auf Ubuntu/Debian installieren
+
+
+### Installation 
+
+```
+sudo apt update 
+sudo apt install git 
+```
+
+### Language to english please !! 
+
+```
+sudo update-locale LANG=en_US.UTF-8
+su - kurs
+
+## back to german 
+
+sudo update-locale LANG=de_DE.UTF-8 
+su - kurs 
+
+## Reference:
+https://www.thomas-krenn.com/de/wiki/Locales_unter_Ubuntu_konfigurieren
+
+## update-locale does a change in
+$ cat /etc/default/locale 
+LANG=en_US.UTF-8
+
+```
+
+### GIT unter Windows installieren
+
+  * https://git-scm.com/download/win
