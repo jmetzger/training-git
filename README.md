@@ -55,7 +55,7 @@
      * [Help from commandline](help.md)
    
   1. Authentication 
-     * [credntial-helper](credential-helper.md)
+     * [Work with different credentials](credential-helper.md)
    
   1. Documentation 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf) 
