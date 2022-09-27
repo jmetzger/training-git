@@ -1,4 +1,4 @@
-# Using a substree 
+# Using a subtree 
 
 ## Walkthrough
 
