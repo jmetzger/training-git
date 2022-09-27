@@ -8,7 +8,10 @@
 # Local 
 git checkout -b feature/5012
 # Zeile 1 ändern
-todo.txt
+# nano todo.txt
+```
+
+```
 git add .
 git commit -am "todo.txt"
 git push -u origin feature/5012
