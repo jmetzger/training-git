@@ -17,7 +17,14 @@ git commit -am "todo.txt"
 git push -u origin feature/5012
 ```
 
-### Schritt 2:
+## Schritt 2: 
+
+```
+# Merge request erstellen
+
+```
+
+### Schritt 3:
 
 ```
 # Änderung online über gitlab.com 
@@ -26,7 +33,7 @@ git push -u origin feature/5012
 # speichern (=committen) 
 ```
 
-### Schritt 3:
+### Schritt 4:
 
 ```
 Probieren zu mergen -> in merge request 
