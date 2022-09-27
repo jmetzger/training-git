@@ -54,6 +54,9 @@
   1. Help
      * [Help from commandline](help.md)
    
+  1. subtrees
+     * [substrees](subtrees.md)
+   
   1. Authentication 
      * [Work with different credentials](credential-helper.md)
    
