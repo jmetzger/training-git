@@ -4,8 +4,14 @@
 
 ```
 git remote add -f training-git https://github.com/jmetzger/training-git.git
-git subtree add --prefix training/ training main --squash
+git subtree add --prefix training training-git main --squash
+```
 
+## Updating 
+
+```
+git fetch training-git main
+git subtree pull --prefix training training-git main --squash
 ```
 
 ## Ref. 
