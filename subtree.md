@@ -26,6 +26,13 @@ git fetch training-git main
 git subtree pull --prefix training training-git main --squash
 ```
 
+## Push 
+
+```
+git subtree push --prefix=training training-git main
+```
+
+
 ## Ref. 
 
   * https://www.atlassian.com/git/tutorials/git-subtree
