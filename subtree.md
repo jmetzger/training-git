@@ -14,6 +14,7 @@ cd training-neu
 
 ```
 git remote add -f training-git https://github.com/jmetzger/training-git.git
+git status 
 git subtree add --prefix training training-git main --squash
 ```
 
