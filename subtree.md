@@ -1,5 +1,15 @@
 # Using a subtree 
 
+## Prerequisites - Existing local repo 
+
+```
+# in der bash 
+cd .. 
+cp -a training training-neu 
+cd training-neu
+```
+
+
 ## Walkthrough
 
 ```
