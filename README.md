@@ -16,6 +16,7 @@
      * [git checkout](checkout.md)
      * [git merge](merge.md)
      * [git tag](tag.md)
+     * [git rm (Dateien löschen aus git)](rm.md)
    
   1. Advanced Commands 
      * [git reflog](reflog.md) 
