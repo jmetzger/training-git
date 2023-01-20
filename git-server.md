@@ -94,4 +94,22 @@ Cons: Mo multi-user interaction
   * Sicherheitsfeatures höher 
   * Integration mit VisualStudio
   * Kostenvorteile durch Lizenz Visual Studio Pro 
+
+### AWS Code Commit 
+
+#### Overview 
+ 
+   * Innerhalb der Amazon AWS Familie 
+
+#### Pros 
+
+  * Integration von AWS 
+
+#### Cons 
+
+  * Etwas ungünstige Positionierung des Interface (wo finde ich das überhaupt) 
+  * Benamung: AWS Console -> Web Interface 
+  * Sehr kleines FeatureSet (z.B. GIT LFS möglich) 
+  * keinen Forken möglich 
+
  
