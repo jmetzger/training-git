@@ -48,7 +48,7 @@
   1. Extras 
      * [Best practices](bp.md) 
      * [Using a mergetool to solve conflicts](mergetools.md)
-     * [Overview GIT-Servers](git-servers.md)
+     * [Overview GIT-Servers](git-server.md)
   
   1. Help
      * [Help from commandline](help.md)
