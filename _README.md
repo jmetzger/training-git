@@ -6,7 +6,7 @@
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf)
      
   1. Commands (with tipps & tricks) 
-     * [git add + Tipps & Tricks](#git-add-+-tipps-&-tricks)
+     * [git add + Tipps & Tricks](#git-add-+-tipps--tricks)
      * [git commit](#git-commit)
      * [git log](#git-log)
      * [git config](#git-config)
@@ -16,6 +16,7 @@
      * [git checkout](#git-checkout)
      * [git merge](#git-merge)
      * [git tag](#git-tag)
+     * [git rm (Dateien löschen aus git)](#git-rm-dateien-löschen-aus-git)
    
   1. Advanced Commands 
      * [git reflog](#git-reflog)
@@ -37,6 +38,7 @@
   1. Exercises 
      * [merge feature/4712 - conflict](#merge-feature4712---conflict)
      * [merge request with bitbucket](#merge-request-with-bitbucket)
+     * [Exercise with cherry-picking](#exercise-with-cherry-picking)
   
   1. Snippets 
      * [publish lokal repo to server - bitbucket](#publish-lokal-repo-to-server---bitbucket)
@@ -46,6 +48,8 @@
   1. Extras 
      * [Best practices](#best-practices)
      * [Using a mergetool to solve conflicts](#using-a-mergetool-to-solve-conflicts)
+     * [Overview GIT-Servers](#overview-git-servers)
+     * [4 goldene Regeln](#4-goldene-regeln)
   
   1. Help
      * [Help from commandline](#help-from-commandline)
@@ -305,6 +309,15 @@ git checkout master
 git pull --rebase --tags
 ```
 
+### git rm (Dateien löschen aus git)
+
+
+### Datei nur aus Repo und Index löschen 
+
+```
+git rm --cached dateiname 
+```
+
 ## Advanced Commands 
 
 ### git reflog
@@ -420,7 +433,11 @@ git checkout 11ed -- tmp/test.txt
 
 ```
 ## datei todo.txt aus 11ae -> Inhalt anzeigen und direkt neue datei umleiten 
+git show 11ae:todo.txt > todoneu.txt
+
+## ein commit vorher 
 git show 11ae^:todo.txt > todoneu.txt
+
 ```
 
 ### Always rebase on pull - setting
@@ -645,6 +662,25 @@ git pull --rebase
 ```
 
 
+### Exercise with cherry-picking
+
+
+### Walkthrough 
+
+```
+1. Neuen Branch feature/5050 erstellen 
+2. 3 Änderungen wie folgt:
+   a. todo.txt Zeile1 + add -A + commit 
+   b. todo.txt Zeile2 + add -A + commit
+   c. todo.txt Zeile3 + add -A + commit
+3. Wechsel in den master 
+---
+4. commit von 2b. notieren 
+5. branch löschen 
+6. Cherry-picken von commit aus 2b
+
+```
+
 ## Snippets 
 
 ### publish lokal repo to server - bitbucket
@@ -775,7 +811,10 @@ git push
 ### Find out if mergetool meld is available 
 
 ```
- git mergetool --tool-help
+## Important: close and reopen git bash before doing that 
+## you can try to see, if meld can be executed by simply typing "meld"
+
+git mergetool --tool-help
 ```
 
 ### Configure, when it is found by mergetool --tool-help 
@@ -807,6 +846,134 @@ git config --global mergetool.keepBackup false
 ```
 ## when you have conflict you can open the mergetool (graphical tool with )
 git mergetool
+```
+
+### Overview GIT-Servers
+
+
+### Builtin with git-installation
+
+#### Simple GIT-Server 
+
+```
+## included in installation with git
+Cons: Can do nearly nothing (only pushing and pulling)
+
+* no graphical interface
+* no multi-user support 
+* no additional features (like bugtracking / milestones a.s.o) 
+
+```
+
+#### Web-Interface (also from git installation) 
+
+```
+Cons: Mo multi-user interaction 
+```
+
+### Comfortable Git-Server 
+
+#### gitea / codeberg 
+
+  * OpenSource 
+  * minimum feature
+  * not integrated with other software 
+  
+#### gitlab 
+
+##### General 
+
+  * On premise / cloud 
+
+##### Pros 
+
+  * Devops - Server (Integration) 
+  * Tools für Devops 
+  * Integration von CI/CD 
+    * Favourite von Jochen (in opposite github actions)
+  * kleine Teams können on premise kostenlos starten 
+  * Im Rahmen von DevOps auch automatische Integration von Scannen von Software drin.
+  
+#### bitbucket 
+
+##### Overview 
+
+  * Software Company Atlassian.
+  * Problematic license policy 
+  * Cloud-Based (SaaS) - ich miete - subscription 
+  * On Premise (Installation im Firmennetz) 
+    * aber abgekündigt 
+  * On Premise fü+r grosse Unternehmen - sehr teuer 
+
+##### Pros
+
+  * Integration with other software products (confluence - wiki, jira - ticket system)
+  * webhooks (url aufgerufen wird dich ich festlege mit einem payload) 
+
+##### Cons 
+
+  * No CI/CD directly within bitbucket 
+
+#### github 
+
+##### Overview 
+
+  * Bought by microsoft 
+
+##### Pros 
+ 
+  * on premise git gut möglich (github enterprise) 
+  * Editor sehr gut im Web-Interface 
+
+##### Cons 
+
+  * Menüführung von github nicht so intuitiv für Jochen 
+  * github actions (CI/CD) zu kompiziert (Lernkurve größe als bei gitlab ci/cd) 
+  
+#### Azure Devops
+
+##### Overview 
+
+  * Repos are use from github under the hood 
+
+##### Con 
+
+  * Lernkurve höher als bei github, gitlab, bitbucket
+
+##### Pros 
+
+  * Sicherheitsfeatures höher 
+  * Integration mit VisualStudio
+  * Kostenvorteile durch Lizenz Visual Studio Pro 
+
+#### AWS Code Commit 
+
+##### Overview 
+ 
+   * Innerhalb der Amazon AWS Familie 
+
+##### Pros 
+
+  * Integration von AWS 
+
+##### Cons 
+
+  * Etwas ungünstige Positionierung des Interface (wo finde ich das überhaupt) 
+  * Benamung: AWS Console -> Web Interface 
+  * Sehr kleines FeatureSet (z.B. GIT LFS möglich) 
+  * keinen Forken möglich 
+
+ 
+
+### 4 goldene Regeln
+
+
+```
+  * Niemals einen push --force machen 
+    (nur in Abstimmung mit dem gesamten Team) 
+  * kein reset vor bereits veröffentlichte commits 
+  * git commit --amend nur wenn commit noch nicht veröffentlicht (push auf server) 
+  * rebase nur wenn branch / commit noch nicht veröffentlicht 
 ```
 
 ## Help
