@@ -7,7 +7,10 @@
 ## Find out if mergetool meld is available 
 
 ```
- git mergetool --tool-help
+# Important: close and reopen git bash before doing that 
+# you can try to see, if meld can be executed by simply typing "meld"
+
+git mergetool --tool-help
 ```
 
 ## Configure, when it is found by mergetool --tool-help 
