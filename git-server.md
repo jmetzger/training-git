@@ -41,7 +41,7 @@ Cons: Mo multi-user interaction
   * Integration von CI/CD 
     * Favourite von Jochen (in opposite github actions)
   * kleine Teams können on premise kostenlos starten 
-  * Im Rahmen von DevOps auch automatische Integration von SCannen von Software drin.
+  * Im Rahmen von DevOps auch automatische Integration von Scannen von Software drin.
   
 ### bitbucket 
 
@@ -68,8 +68,30 @@ Cons: Mo multi-user interaction
 #### Overview 
 
   * Bought by microsoft 
+
+#### Pros 
+ 
+  * on premise git gut möglich (github enterprise) 
+  * Editor sehr gut im Web-Interface 
+
+#### Cons 
+
+  * Menüführung von github nicht so intuitiv für Jochen 
+  * github actions (CI/CD) zu kompiziert (Lernkurve größe als bei gitlab ci/cd) 
   
-
-
 ### Azure Devops
 
+#### Overview 
+
+  * Repos are use from github under the hood 
+
+#### Con 
+
+  * Lernkurve höher als bei github, gitlab, bitbucket
+
+#### Pros 
+
+  * Sicherheitsfeatures höher 
+  * Integration mit VisualStudio
+  * Kostenvorteile durch Lizenz Visual Studio Pro 
+ 
