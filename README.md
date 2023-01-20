@@ -18,7 +18,7 @@
      * [git tag](tag.md)
      * [git rm (Dateien löschen aus git)](rm.md)
    
-  1. Advanced Commands 
+  1. Erweiterte Commands 
      * [git reflog](reflog.md) 
      * [git reset - Back in Time](reset.md)   
      
