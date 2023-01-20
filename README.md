@@ -49,6 +49,7 @@
      * [Best practices](bp.md) 
      * [Using a mergetool to solve conflicts](mergetools.md)
      * [Overview GIT-Servers](git-server.md)
+     * [4 goldene Regeln](goldene-regeln.md)
   
   1. Help
      * [Help from commandline](help.md)
