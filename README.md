@@ -13,7 +13,7 @@
      * [git show](show.md)
      * [Needed commands for starters](started-commands.md)
      * [git branch](branch.md)
-     * [git checkout](checkout.md)
+     * [git branch/checkout](checkout.md)
      * [git merge](merge.md)
      * [git tag](tag.md)
      * [git rm (Dateien löschen aus git)](rm.md)
