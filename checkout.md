@@ -1,4 +1,4 @@
-# git branch 
+# git branch / git checkout 
 
 ## Checkout (change to) existing branch 
 
