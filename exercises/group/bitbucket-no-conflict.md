@@ -9,7 +9,7 @@
 git checkout -b feature/jochen1
 ls -la
 touch jochen1.txt
-git add .
+git add -A 
 git commit -am "jochen1.txt"
 git push -u origin feature/jochen1 
 ```
