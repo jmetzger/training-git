@@ -1,4 +1,4 @@
-# Merge request   
+# Merge request with conflict (bitbucket) 
   
 ```  
 # Local 
