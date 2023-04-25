@@ -39,6 +39,7 @@
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
      * [merge request with bitbucket](merge-request.md)
+     * [merge request bitbucket with conflict](merge-request-conflict.md)
      * [Exercise with cherry-picking](/exercises/cherry-pick.md)
   
   1. Snippets 
