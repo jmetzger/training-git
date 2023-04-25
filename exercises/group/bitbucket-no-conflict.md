@@ -1,4 +1,4 @@
-# Merge request   
+# Merge request (Gruppenarbeit) 
   
 ## Jeder in der Gruppe erstellt lokal ein Feature   
   
