@@ -5,8 +5,8 @@
 ```  
 # Local 
 # git checkout -b feature/<euer-vorname>
-# e.g. git checkout -b feature/jochen1
-
+# e.g. 
+git checkout -b feature/jochen1
 ls -la
 touch jochen1.txt
 git add .
