@@ -1,6 +1,9 @@
 # Merge request (Gruppenarbeit) 
-  
-## Jeder in der Gruppe erstellt lokal ein Feature   
+ 
+ ## Phase 1 
+ 
+ 
+### Jeder in der Gruppe erstellt lokal ein Feature   
   
 ```  
 # Local 
@@ -14,10 +17,17 @@ git commit -am "jochen1.txt"
 git push -u origin feature/jochen1 
 ```
  
-## Online bitbucket / gitlab 
+### Online bitbucket / gitlab 
  
 ```
 # create merge request 
+```
+
+## Phase 2
+
+
+## Online bitbucken - strukturiert mergen 
+```
 # and mergen strukturiert nacheinander 
 ```
 
