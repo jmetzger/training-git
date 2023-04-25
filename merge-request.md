@@ -22,6 +22,9 @@ git push -u origin feature/4822
 
 ## Delete branch online after merge 
 
+  * eventually done automatically when checkbox was set
+  * or: delete from branches menu 
+
 ## Cleanup locally 
 
 ```
