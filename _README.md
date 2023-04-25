@@ -6,6 +6,7 @@
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf)
      
   1. Commands (with tipps & tricks) 
+     * [git alias ](#git-alias-)
      * [git add + Tipps & Tricks](#git-add-+-tipps--tricks)
      * [git commit](#git-commit)
      * [git log](#git-log)
@@ -18,7 +19,7 @@
      * [git tag](#git-tag)
      * [git rm (Dateien löschen aus git)](#git-rm-dateien-löschen-aus-git)
    
-  1. Advanced Commands 
+  1. Erweiterte Commands 
      * [git reflog](#git-reflog)
      * [git reset - Back in Time](#git-reset---back-in-time)
      
@@ -38,7 +39,10 @@
   1. Exercises 
      * [merge feature/4712 - conflict](#merge-feature4712---conflict)
      * [merge request with bitbucket](#merge-request-with-bitbucket)
+     * [merge request bitbucket with conflict](#merge-request-bitbucket-with-conflict)
      * [Exercise with cherry-picking](#exercise-with-cherry-picking)
+     * [Gruppenarbeit-bitbucket-ohne-konflikt](#gruppenarbeit-bitbucket-ohne-konflikt)
+     * [Gruppenarbeit bitbucket mit Konflikt](#gruppenarbeit-bitbucket-mit-konflikt)
   
   1. Snippets 
      * [publish lokal repo to server - bitbucket](#publish-lokal-repo-to-server---bitbucket)
@@ -54,8 +58,9 @@
   1. Help
      * [Help from commandline](#help-from-commandline)
    
-  1. subtrees
+  1. subtrees / submodules 
      * [substrees](#substrees)
+     * [submodules](#submodules)
    
   1. Authentication 
      * [Work with different credentials](#work-with-different-credentials)
@@ -88,6 +93,13 @@
   * http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf
 
 ## Commands (with tipps & tricks) 
+
+### git alias 
+
+
+```
+git config --global alias.sl '!git log --oneline -2 && git status'
+```
 
 ### git add + Tipps & Tricks
 
@@ -312,13 +324,19 @@ git pull --rebase --tags
 ### git rm (Dateien löschen aus git)
 
 
+### Datei komplett löschen (Workspace und Repo) 
+
+```
+git rm  dateiname  
+```
+
 ### Datei nur aus Repo und Index löschen 
 
 ```
 git rm --cached dateiname 
 ```
 
-## Advanced Commands 
+## Erweiterte Commands 
 
 ### git reflog
 
@@ -618,13 +636,13 @@ git log --after="2022-09-26" --before="2022-09-27" --pretty=format:"" --follow -
 
 ```
 1. You are in master-branch
-2. Checkout new branch feature/4712 
+2. Checkout new branch feature/4723
 3. Change line1 in todo.txt 
-4. git add -A; git commit -am "feature-4712 done"
+4. git add -A; git commit -am "feature-4723 done"
 5. Change to master 
 6. Change line1 in todo.txt 
 7. git add -A; git commit -am "change line1 in todo.txt in master" 
-8. git merge feature/4712 
+8. git merge feature/4723 
 ```
 
 ### merge request with bitbucket
@@ -652,12 +670,86 @@ git push -u origin feature/4822
 
 ### Delete branch online after merge 
 
+  * eventually done automatically when checkbox was set
+  * or: delete from branches menu 
+
 ### Cleanup locally 
 
 ```
 git fetch --prune
 git checkout master
 git branch -D feature/4822
+git pull --rebase
+```
+
+
+### merge request bitbucket with conflict
+
+  
+```  
+## Local 
+git checkout -b feature/5021
+## ändern zeile1 in todo.txt 
+notepad todo.txt 
+
+git add .
+git commit -am "aenderung todo.txt"
+git push -u origin feature/5021
+```
+
+### Online Änderung im master -> todo.txt -> Zeile 1
+
+```
+Änderung über web-Oberfläche in bitbucket -> source 
+```
+  
+### Online bitbucket / gitlab 
+ 
+```
+## create merge request 
+## and merge  --> conflict 
+```
+
+### Auflösen des Konflikts (im Branch feature/5021) 
+
+```
+git pull origin master 
+## lösen den conflict 
+
+git status 
+
+## modfizieren die todo.txt 
+notepad todo.txt 
+
+git add todo.txt 
+## Konflikt gelöst 
+git commit 
+
+## der branche wird nochmal hochgeschoben 
+git push 
+
+```
+
+### Merge durchführen 
+
+```
+## Wieder in den Pull-Request rein und den Merge durchführen 
+
+```
+
+
+
+### Delete branch online after merge 
+
+  * eventually done automatically when checkbox was set
+  * or: delete from branches menu 
+
+### Cleanup locally 
+
+```
+git fetch --prune
+git checkout master
+git branch -D feature/5021
 git pull --rebase
 ```
 
@@ -680,6 +772,132 @@ git pull --rebase
 6. Cherry-picken von commit aus 2b
 
 ```
+
+### Gruppenarbeit-bitbucket-ohne-konflikt
+
+ 
+ ## Phase 1 
+ 
+ 
+#### Jeder in der Gruppe erstellt lokal ein Feature   
+  
+```  
+## Local 
+## git checkout -b feature/<euer-vorname>
+## e.g. 
+git checkout -b feature/jochen1
+ls -la
+touch jochen1.txt
+git add -A 
+git commit -am "jochen1.txt"
+git push -u origin feature/jochen1 
+```
+ 
+#### Online bitbucket / gitlab 
+ 
+```
+## create merge request 
+```
+
+### Phase 2
+
+
+### Online bitbucken - strukturiert mergen 
+```
+## and mergen strukturiert nacheinander 
+```
+
+### Delete branch online after merge 
+
+  * eventually done automatically when checkbox was set
+  * or: delete from branches menu 
+
+### Cleanup locally 
+
+```
+git fetch --prune
+git checkout master
+git branch -D feature/<euer-vorname>
+git pull --rebase
+```
+
+
+### Gruppenarbeit bitbucket mit Konflikt
+
+ 
+ ## Phase 1 
+ 
+ 
+#### Jeder in der Gruppe erstellt lokal ein Feature   
+  
+```  
+## Local 
+## git checkout -b feature/<euer-vorname>
+## e.g. 
+git checkout -b feature/jochen2
+## Zeile 1 todo.txt 
+notepad todo.txt 
+git add -A 
+git commit -am "todo.txt"
+git push -u origin feature/jochen2 
+```
+ 
+#### Online bitbucket / gitlab 
+ 
+```
+## create merge request 
+```
+
+### Phase 2
+
+
+### Online bitbucken - strukturiert mergen 
+```
+## and mergen strukturiert nacheinander 
+## conflict 
+```
+
+### Jetzt conflict lokal lösen 
+
+```
+## in unserem feature branch
+git pull origin master 
+
+## conflict auflösen 
+notepad todo.txt 
+## entscheiden für codeblock 
+
+## ändern kenntlich machen
+git status
+git add todo.txt 
+
+## merge ist fertig 
+git commit 
+
+
+git push
+```
+
+### Online mergen 
+
+```
+### Jetzt dürfte kein Konflikt mehr da sein 
+```
+
+### Delete branch online after merge 
+
+  * eventually done automatically when checkbox was set
+  * or: delete from branches menu 
+
+### Cleanup locally 
+
+```
+git fetch --prune
+git checkout master
+git branch -D feature/<euer-vorname>
+git pull --rebase
+```
+
 
 ## Snippets 
 
@@ -710,7 +928,7 @@ git pull --rebase
 git push
 Password for 'https://erding2017@bitbucket.org':
 To https://bitbucket.org/erding2017/git-remote-jochen.git
- ! [rejected](fetch first)
+ ! [rejected]        master -> master (fetch first)
 error: failed to push some refs to 'https://erding2017@bitbucket.org/erding2017/git-remote-jochen.git'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
@@ -736,7 +954,7 @@ git push
 git push
 Password for 'https://erding2017@bitbucket.org':
 To https://bitbucket.org/erding2017/git-remote-jochen.git
- ! [rejected](fetch first)
+ ! [rejected]        master -> master (fetch first)
 ....
 ## Step 2: Integrate changes from online 
 git pull
@@ -993,7 +1211,7 @@ git help log
 
 ```
 
-## subtrees
+## subtrees / submodules 
 
 ### substrees
 
@@ -1034,6 +1252,29 @@ git subtree push --prefix=training training-git main
 ### Ref. 
 
   * https://www.atlassian.com/git/tutorials/git-subtree
+
+### submodules
+
+
+### Best practive 
+
+```
+clone repo use for submodule seperately
+(in seperate folder)
+if you want to change it
+```
+
+### Updating commands for updating subfolder 
+
+```
+git submodule update --remote 
+## use other branch from submodule then master 
+git config -f .gitmodules submodule.DbConnector.branch stable
+```
+
+### Ref.
+
+  * https://git-scm.com/book/de/v2/Git-Tools-Submodule
 
 ## Authentication 
 
