@@ -41,7 +41,7 @@
      * [merge request with bitbucket](merge-request.md)
      * [merge request bitbucket with conflict](/bitbucket/merge-request-conflict.md)
      * [Exercise with cherry-picking](/exercises/cherry-pick.md)
-     * [Gruppenarbeit-bitbucket-ohne-konflikt](/exercises/group/no-conflict.md)
+     * [Gruppenarbeit-bitbucket-ohne-konflikt](/exercises/group/bitbucket-no-conflict.md)
   
   1. Snippets 
      * [publish lokal repo to server - bitbucket](local-public.md)
