@@ -38,14 +38,12 @@ git config -f .gitmodules submodule.DbConnector.branch stable
 ## Get rid of submodule 
 
 ```
-# Remove the submodule entry from .git/config
-git submodule deinit -f training-git
+rm -fR training-git/
+git rm .gitmodules
+git rm training-git
+git status
+git commit -am "removed submodules"
 
-# Remove the submodule directory from the superproject's .git/modules directory
-rm .git/modules/training-git -r -fo
-
-# Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
-git rm -f training-git
 ```
 
 
