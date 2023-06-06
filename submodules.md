@@ -1,5 +1,11 @@
 # Submodules best practice 
 
+## Add submodule 
+
+```
+git submodule add https://github.com/jmetzger/training-git.git
+```
+
 ## Best practive 
 
 ```
