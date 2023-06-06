@@ -6,6 +6,12 @@
 git submodule add https://github.com/jmetzger/training-git.git
 ```
 
+## Clone repo with submodules (Important !) 
+
+```
+git clone --recurse-submodules https://gitlab.com/dummyhoney/jochen111.git training-subtest
+```
+
 ## Best practive 
 
 ```
