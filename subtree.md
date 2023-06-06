@@ -14,22 +14,21 @@ cd training-neu
 
 ```
 git remote add -f training-git https://github.com/jmetzger/training-git.git
-# weird, but needed 
 git status 
-git subtree add --prefix training training-git main --squash
+git subtree add --prefix training-git training-git main --squash
 ```
 
 ## Updating 
 
 ```
 git fetch training-git main
-git subtree pull --prefix training training-git main --squash
+git subtree pull --prefix training-git training-git main --squash
 ```
 
 ## Push 
 
 ```
-git subtree push --prefix=training training-git main
+git subtree push --prefix=training-git training-git main
 ```
 
 
