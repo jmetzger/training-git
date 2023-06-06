@@ -12,6 +12,13 @@ git submodule add https://github.com/jmetzger/training-git.git
 git clone --recurse-submodules https://gitlab.com/dummyhoney/jochen111.git training-subtest
 ```
 
+## Updaten des submodules 
+
+```
+git submodule update --remote training-git
+git commit -am "new version" 
+```
+
 ## Best practive 
 
 ```
