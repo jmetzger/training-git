@@ -23,7 +23,7 @@
      * [git reflog](reflog.md) 
      * [git reset - Back in Time](reset.md)   
      
-  1. Tips & tricks 
+  1. Tipps & tricks 
      * [Beautified log](beautify-log.md)
      * [Change already committed files and message](commit-amend.md) 
      * [Best practice - Delete origin,tracking and local branch after pull request/merge request](best-practice-delete-branch.md)
@@ -35,6 +35,9 @@
      * [SETUP.sql zu setup.sql in Windows (Groß- und Kleinschreibung)](setup-SETUP_sql.md)
      * [Force specfic commit message](pre-receive-hook.md)
      * [Alle Dateien, die sich geändert haben anzeigen z.B. heute](files-changed-today.md)
+  
+  1. Tipps & Tricks (Mergen) 
+     * [No automerging - please](no-automerging.md)
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
