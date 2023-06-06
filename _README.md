@@ -23,7 +23,7 @@
      * [git reflog](#git-reflog)
      * [git reset - Back in Time](#git-reset---back-in-time)
      
-  1. Tips & tricks 
+  1. Tipps & tricks 
      * [Beautified log](#beautified-log)
      * [Change already committed files and message](#change-already-committed-files-and-message)
      * [Best practice - Delete origin,tracking and local branch after pull request/merge request](#best-practice---delete-origintracking-and-local-branch-after-pull-requestmerge-request)
@@ -35,6 +35,9 @@
      * [SETUP.sql zu setup.sql in Windows (Groß- und Kleinschreibung)](#setupsql-zu-setupsql-in-windows-groß--und-kleinschreibung)
      * [Force specfic commit message](#force-specfic-commit-message)
      * [Alle Dateien, die sich geändert haben anzeigen z.B. heute](#alle-dateien-die-sich-geändert-haben-anzeigen-zb-heute)
+  
+  1. Tipps & Tricks (Mergen) 
+     * [No automerging - please](#no-automerging---please)
   
   1. Exercises 
      * [merge feature/4712 - conflict](#merge-feature4712---conflict)
@@ -76,6 +79,13 @@
      * https://www.innoq.com/de/talks/2019/05/commit-message-101/
      * https://github.com/GitAlias/gitalias/blob/main/gitalias.txt
      * https://education.github.com/git-cheat-sheet-education.pdf
+
+  1. Integrations 
+     * https://docs.gitlab.com/ee/integration/jira/
+
+  1. GUIs
+     * [git extensions gui](#git-extensions-gui)
+     * [gui uebersicht](https://git-scm.com/downloads/guis)
      
 ## Backlog  
 
@@ -229,6 +239,12 @@ git branch -d branchname # does not work in this case
 git branch -D branchname # <- is the solution 
 ```
 
+### Delete remote tracking branch 
+
+```
+git branch -d -r origin/feature/501
+```
+
 ### git checkout
 
 
@@ -280,6 +296,7 @@ git merge --no-ff feature/4711
 ### Creating tags, Working with tags 
 
 ```
+## test 
 ## set tag on current commit -> HEAD of branch 
 git tag -a v1.0 -m "my message for tag"
 ## publish 
@@ -375,7 +392,7 @@ git reflog
 git reset --hard 2343 
 ```
 
-## Tips & tricks 
+## Tipps & tricks 
 
 ### Beautified log
 
@@ -468,6 +485,25 @@ git config branch.master.rebase true
 ### Arbeit mit submodules
 
 
+### Add submodule 
+
+```
+git submodule add https://github.com/jmetzger/training-git.git
+```
+
+### Clone repo with submodules (Important !) 
+
+```
+git clone --recurse-submodules https://gitlab.com/dummyhoney/jochen111.git training-subtest
+```
+
+### Updaten des submodules 
+
+```
+git submodule update --remote training-git
+git commit -am "new version" 
+```
+
 ### Best practive 
 
 ```
@@ -483,6 +519,18 @@ git submodule update --remote
 ## use other branch from submodule then master 
 git config -f .gitmodules submodule.DbConnector.branch stable
 ```
+
+### Get rid of submodule 
+
+```
+rm -fR training-git/
+git rm .gitmodules
+git rm training-git
+git status
+git commit -am "removed submodules"
+
+```
+
 
 ### Ref.
 
@@ -627,6 +675,23 @@ for i in $(git log --after="2022-09-26" --before="2022-09-27" --pretty=format:""
 git log --after="2022-09-26" --before="2022-09-27" --pretty=format:"" --follow -p -- todo.txt
 ```
 
+## Tipps & Tricks (Mergen) 
+
+### No automerging - please
+
+
+### Mergen ohne commit, commit selbst nach Überprüfung 
+
+```
+git merge --no-commit --no-ff <local-branch>
+## schritt 2:
+## Entweder. Vergleichen mit diff
+## d.h. Index wird verglichen mit letzten Commit
+git diff HEAD
+## Oder schön mit difftool (wenn konfiguriert) 
+git difftool HEAD 
+```
+
 ## Exercises 
 
 ### merge feature/4712 - conflict
@@ -638,7 +703,7 @@ git log --after="2022-09-26" --before="2022-09-27" --pretty=format:"" --follow -
 1. You are in master-branch
 2. Checkout new branch feature/4723
 3. Change line1 in todo.txt 
-4. git add -A; git commit -am "feature-4723 done"
+4. git add -A; git commit -am "feature/4723 done"
 5. Change to master 
 6. Change line1 in todo.txt 
 7. git add -A; git commit -am "change line1 in todo.txt in master" 
@@ -1229,23 +1294,23 @@ cd training-neu
 ### Walkthrough
 
 ```
+## -f is needed because commits are different from main project 
 git remote add -f training-git https://github.com/jmetzger/training-git.git
-## weird, but needed 
 git status 
-git subtree add --prefix training training-git main --squash
+git subtree add --prefix training-git training-git main --squash
 ```
 
 ### Updating 
 
 ```
 git fetch training-git main
-git subtree pull --prefix training training-git main --squash
+git subtree pull --prefix training-git training-git main --squash
 ```
 
 ### Push 
 
 ```
-git subtree push --prefix=training training-git main
+git subtree push --prefix=training-git training-git main
 ```
 
 
@@ -1255,6 +1320,25 @@ git subtree push --prefix=training training-git main
 
 ### submodules
 
+
+### Add submodule 
+
+```
+git submodule add https://github.com/jmetzger/training-git.git
+```
+
+### Clone repo with submodules (Important !) 
+
+```
+git clone --recurse-submodules https://gitlab.com/dummyhoney/jochen111.git training-subtest
+```
+
+### Updaten des submodules 
+
+```
+git submodule update --remote training-git
+git commit -am "new version" 
+```
 
 ### Best practive 
 
@@ -1271,6 +1355,18 @@ git submodule update --remote
 ## use other branch from submodule then master 
 git config -f .gitmodules submodule.DbConnector.branch stable
 ```
+
+### Get rid of submodule 
+
+```
+rm -fR training-git/
+git rm .gitmodules
+git rm training-git
+git status
+git commit -am "removed submodules"
+
+```
+
 
 ### Ref.
 
@@ -1329,6 +1425,21 @@ https://de.linkedin.com/pulse/mehrere-gitlabgithub-accounts-bzw-ssh-keys-zum-hos
 ### Specification Conventional Commits
 
   * https://www.conventionalcommits.org/en/v1.0.0/
+
+## Integrations 
+
+## GUIs
+
+### git extensions gui
+
+
+### Installation
+
+ * http://gitextensions.github.io/
+
+### gui uebersicht
+
+  * https://git-scm.com/downloads/guis
 
 ## Installation 
 
