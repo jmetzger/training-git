@@ -77,6 +77,9 @@
      * https://github.com/GitAlias/gitalias/blob/main/gitalias.txt
      * https://education.github.com/git-cheat-sheet-education.pdf
 
+  1. Integrations 
+     * https://docs.gitlab.com/ee/integration/jira/
+
   1. GUIs
      * [git extensions gui](/gui/git-extensions.md)
      * [gui uebersicht](https://git-scm.com/downloads/guis)
