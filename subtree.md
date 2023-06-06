@@ -13,6 +13,7 @@ cd training-neu
 ## Walkthrough
 
 ```
+# -f is needed because commits are different from main project 
 git remote add -f training-git https://github.com/jmetzger/training-git.git
 git status 
 git subtree add --prefix training-git training-git main --squash
