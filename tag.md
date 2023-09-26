@@ -2,8 +2,6 @@
 
 ## Creating tags, Working with tags 
 
-  * Danke für diese fantastische Information  
-
 ```
 # test 
 # set tag on current commit -> HEAD of branch 
