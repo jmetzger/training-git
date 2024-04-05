@@ -1,6 +1,6 @@
 # rm
 
-## Datei komplett löschen (Workspace und Repo) 
+## Datei komplett löschen (Workspace, Index und Repo) 
 
 ```
 git rm  dateiname  
