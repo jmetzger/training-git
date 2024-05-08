@@ -43,7 +43,7 @@
      * [show branch in prompt](linux/prompt-branch.md)
     
   1. Tipps & Tricks (gitlab)
-     * [Delete source branch checked](gitlab/)
+     * [Delete source branch checked](gitlab/delete-source-branch-default.md)
   
   1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
