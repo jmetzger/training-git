@@ -38,6 +38,12 @@
   
   1. Tipps & Tricks (Mergen) 
      * [No automerging - please](#no-automerging---please)
+    
+  1. Tipps & Tricks (Linux)
+     * [show branch in prompt](#show-branch-in-prompt)
+    
+  1. Tipps & Tricks (gitlab)
+     * [Delete source branch checked](#delete-source-branch-checked)
   
   1. Exercises 
      * [merge feature/4712 - conflict](#merge-feature4712---conflict)
@@ -353,7 +359,7 @@ git pull --rebase --tags
 ### git rm (Dateien löschen aus git)
 
 
-### Datei komplett löschen (Workspace und Repo) 
+### Datei komplett löschen (Workspace, Index und Repo) 
 
 ```
 git rm  dateiname  
@@ -703,6 +709,33 @@ git diff HEAD
 ## Oder schön mit difftool (wenn konfiguriert) 
 git difftool HEAD 
 ```
+
+## Tipps & Tricks (Linux)
+
+### show branch in prompt
+
+
+```
+## in ~/.bashrc 
+```
+
+```
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+```
+
+```
+source ~/.bashrc
+```
+
+## Tipps & Tricks (gitlab)
+
+### Delete source branch checked
+
+
+![image](https://github.com/jmetzger/training-git/assets/1933318/49a411ef-04c4-4bc6-8893-e173da5504f9)
 
 ## Exercises 
 
@@ -1141,6 +1174,13 @@ git config --global mergetool.keepBackup false
 ```
 ## when you have conflict you can open the mergetool (graphical tool with )
 git mergetool
+```
+
+### meld unter wsl
+
+```
+git config --global difftool.meld.path "/mnt/c/Program Files/Meld/Meld.exe"
+git config --global mergetool.meld.path "/mnt/c/Program Files/Meld/Meld.exe"
 ```
 
 ### Overview GIT-Servers
