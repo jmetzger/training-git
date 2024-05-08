@@ -44,28 +44,9 @@ git config --global mergetool.keepBackup false
 git mergetool
 ```
 
-## meld unter wsl  (Variante 1) 
+## meld unter wsl
 
 ```
-# als root
-cd /usr/local/bin
-vi meld 
+git config --global difftool.meld.path "/mnt/c/Program Files/Meld/Meld.exe"
+git config --global mergetool.meld.path "/mnt/c/Program Files/Meld/Meld.exe"
 ```
-
-```
-#!/bin/bash
-
-# /mnt/c/Program\ Files\ \(x86\)/Meld/Meld.exe $@
-/mnt/c/Program\ Files/Meld/Meld.exe $@
-```
-
-```
-chmod u+x /usr/local/bin/meld
-```
-
-  * Ref: https://stackoverflow.com/questions/51642736/windows-subsystem-for-linux-git-mergetool-meld-unicodedecodeerror
-
-## meld unter WSL (Variante 1) 
-
-  * Pfad direkt eintragen s.o. 
-
