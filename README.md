@@ -41,6 +41,7 @@
   
   1. Tipps & Tricks (Mergen) 
      * [No automerging - please](no-automerging.md)
+     * [Setup Mergetool tortoisemerge](mergetools/tortoisemerge.md)
     
   1. Tipps & Tricks (Linux)
      * [show branch in prompt](linux/prompt-branch.md)
