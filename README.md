@@ -21,7 +21,10 @@
    
   1. Erweiterte Commands 
      * [git reflog](reflog.md) 
-     * [git reset - Back in Time](reset.md)   
+     * [git reset - Back in Time](reset.md)
+
+  1. Editor
+     * [Set Editor](editor.md)
      
   1. Tipps & tricks 
      * [Beautified log](beautify-log.md)
