@@ -72,7 +72,7 @@
      * [Help from commandline](help.md)
    
   1. subtrees / submodules 
-     * [substrees](subtree.md)
+     * [subtrees](subtree.md)
      * [submodules](submodules.md)
    
   1. Authentication 
