@@ -22,6 +22,9 @@
   1. Erweiterte Commands 
      * [git reflog](#git-reflog)
      * [git reset - Back in Time](#git-reset---back-in-time)
+
+  1. Editor
+     * [Set Editor](#set-editor)
      
   1. Tipps & tricks 
      * [Beautified log](#beautified-log)
@@ -38,6 +41,7 @@
   
   1. Tipps & Tricks (Mergen) 
      * [No automerging - please](#no-automerging---please)
+     * [Setup Mergetool tortoisemerge](#setup-mergetool-tortoisemerge)
     
   1. Tipps & Tricks (Linux)
      * [show branch in prompt](#show-branch-in-prompt)
@@ -113,9 +117,17 @@
 ### git alias 
 
 
+### Multiple commands 
+
 ```
 git config --global alias.sl '!git log --oneline -2 && git status'
 
+```
+
+### Delete Alias 
+
+```
+git config --global --unset alias.name_of_alias
 ```
 
 ### git add + Tipps & Tricks
@@ -409,6 +421,20 @@ git reflog
 
 ```
 git reset --hard 2343 
+```
+
+## Editor
+
+### Set Editor
+
+
+```
+## verwende nano / kommt mit der Installation von git auch auf windows mit 
+git config --global core.editor nano
+## editor von windows verwenden 
+git config --global core.editor notepad
+## Verwende notepad++ (Achtung muss installiert sein auf Windows-System) 
+git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
 ```
 
 ## Tipps & tricks 
@@ -709,6 +735,22 @@ git merge --no-commit --no-ff <local-branch>
 git diff HEAD
 ## Oder schön mit difftool (wenn konfiguriert) 
 git difftool HEAD 
+```
+
+### Setup Mergetool tortoisemerge
+
+
+### Step 1: Install tortoisemerge 
+
+  * https://tortoisegit.org/download/
+
+### Step 2: Close git bash if open 
+
+### Step 3: Setup tortoisemerge as mergetool 
+
+```
+git config --global merge.tool tortoisemerge 
+git config --global mergetool.keepBackup false
 ```
 
 ## Tipps & Tricks (Linux)
